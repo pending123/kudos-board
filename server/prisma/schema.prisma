@@ -17,8 +17,8 @@ datasource db {
 model Board{
   boardId      Int @id @default(autoincrement())
   title         String
-  Category      String
-  Author        String?
+  category      String
+  author        String?
   img           String
   cards         Card[]
 }
