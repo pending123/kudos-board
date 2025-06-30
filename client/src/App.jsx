@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import './App.css'
+import Home from "./pages/Home"
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl">Random</h1>
+      <Home />
     </>
   )
 }
