@@ -29,7 +29,7 @@ model Card{
   cardDescription String
   gifUrl          String
   owner           String?
-  voteCount       Int
+  voteCount       Int     @default(0)
   boardId         Int
   board           Board @relation(fields: [boardId], references: [boardId], onDelete: Cascade)
 }
