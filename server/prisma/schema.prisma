@@ -14,7 +14,7 @@ datasource db {
 }
 
 
-Model Board{
+model Board{
   boardId      Int @id @default(autoincrement())
   title         String
   Category      String
@@ -23,7 +23,7 @@ Model Board{
   cards         Card[]
 }
 
-Model Card{
+model Card{
   cardId          Int @id @default(autoincrement())
   title           String
   cardDescription String
