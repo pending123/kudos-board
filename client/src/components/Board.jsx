@@ -1,16 +1,23 @@
-import { useState } from "react"
+import axios from "axios";
 
-export default function Board({boardId, title, category, author, image}) {    
-    
+export default function Board({boardId, title, category, author, image, fetchBoards}) {    
+    async function deleteBoard() {
+        try {
+            await axios.delete(`http://localhost:3000/boards/${boardId}`)
+            await fetchBoards();
+        } catch (err) {
+            console.log("Failed to delete board", err);
+        }
+    }
     return (
         <>
-        <div className="flex flex-col items-center border border-black pb-4">
-            <img src="https://preview.redd.it/i-got-bored-so-i-decided-to-draw-a-random-image-on-the-v0-4ig97vv85vjb1.png?width=1080&crop=smart&auto=webp&s=28c3ad73cff636f7ba478a0c19d734cd538949d4" />
+        <div className="flex flex-col items-center border border-black rounded-2xl pb-4">
+            <img className="aspect-[10/11] rounded-2xl" src={image} />
             <h1 className="text-4xl mt-3">{title}</h1> 
             <p className="text-2xl">{category}</p>
             <div className="flex justify-around w-full mt-3">
-                <button className="text-2xl border border-black p-1.5 cursor-pointer">View Board</button>
-                <button className="text-2xl border border-black p-1.5 cursor-pointer">Delete Board</button>
+                <button className="text-2xl border border-black p-2 cursor-pointer">View Board</button>
+                <button onClick={deleteBoard} className="text-2xl border border-black p-2 cursor-pointer">Delete Board</button>
             </div>
         </div>
         </>
