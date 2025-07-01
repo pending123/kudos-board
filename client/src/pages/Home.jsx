@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import BoardGrid from "../components/BoardGrid"
-import SubNavbar from "../components/subNavbar";
 
 export default function Home() {
     const [boards, setBoards] = useState([]);
@@ -21,17 +20,6 @@ export default function Home() {
     
     return (
         <>
-        <div className="navBar">
-        <SubNavbar
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
-        searchInputValue={searchInputValue}
-        handleOnSearchInputChange={handleOnSearchInputChange}
-        handleSearchSubmit={handleSearchSubmit}
-        handleClearSearch={handleClearSearch}
-        />
-        <p>Welcome to Home Page!</p>
-        </div>
          <BoardGrid boards={boards} fetchBoards={fetchBoards}/>
         </>
     )
