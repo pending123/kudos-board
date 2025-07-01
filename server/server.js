@@ -10,8 +10,13 @@ const corsOption = {
 };
 
 const boardRoutes = require("./routes/boardRoutes")
+const cardRoutes = require("./routes/cardRoutes");
+const commentRoutes = require("./routes/commentRoutes");
+
 
 app.use(cors(corsOption));
-app.use("/boards", boardRoutes)
+app.use("/boards", boardRoutes);
+app.use("/", cardRoutes);
+app.use("/", commentRoutes);
 
 app.listen(3000, () => console.log("Server running on port 3000"));
