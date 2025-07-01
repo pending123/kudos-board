@@ -3,7 +3,14 @@ import axios from "axios";
 import BoardGrid from "../components/BoardGrid"
 import SubNavbar from "../components/subNavbar";
 
-export default function Home() {
+export default function Home({
+    activeCategory,
+  setActiveCategory,
+  searchInputValue,
+  handleOnSearchInputChange,
+  handleSearchSubmit,
+  handleClearSearch,
+}) {
     const [boards, setBoards] = useState([]);
 
     const fetchBoards = async () => {
@@ -30,7 +37,6 @@ export default function Home() {
         handleSearchSubmit={handleSearchSubmit}
         handleClearSearch={handleClearSearch}
         />
-        <p>Welcome to Home Page!</p>
         </div>
          <BoardGrid boards={boards} fetchBoards={fetchBoards}/>
         </>
