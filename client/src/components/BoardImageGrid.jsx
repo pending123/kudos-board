@@ -4,7 +4,7 @@ export default function BoardImageGrid({images, handleImageSelect})
 {
     return (
         <>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 p-1 m-6">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] gap-2 p-1 m-6">
         {images.map((image) => (
             <BoardImage 
                 handleImageSelect={handleImageSelect}
