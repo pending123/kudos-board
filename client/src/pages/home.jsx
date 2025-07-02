@@ -23,7 +23,7 @@ export default function Home({
               : data  
             //checks if it is recent
             const boardsRecent =
-              activeCategory === "All"
+              activeCategory === "Recent"
               ?[...boardsByCategory].sort((boardA, boardB) => {
                 const dateA = new Date(boardA.createdAt);
                 const dateB = new Date(boardB.createdAt);
@@ -31,10 +31,11 @@ export default function Home({
                 })
               : 
                 boardsByCategory;
-                    
-            const boardsShown = Boolean(searchInputValue) 
-            ? boardsRecent.filter((b) => b.title.toLowerCase().indexOf(searchInputVaule.toLowerCase()) !==1) 
-            : boards
+            const searchTerm = searchInputValue.trim().toLowerCase();
+            console.log(searchInputValue)
+            const boardsShown = Boolean(searchTerm) 
+            ? boardsRecent.filter((b) => b.title.toLowerCase().includes(searchTerm) )
+            : boardsRecent
 
             setBoards(boardsShown);
         } catch (err) {
@@ -44,7 +45,7 @@ export default function Home({
 
     useEffect(() => {
         fetchBoards();
-    }, [submittedSearch, activeCategory]);
+    }, [setBoards, activeCategory, submittedSearch]);
     
     return (
         <>

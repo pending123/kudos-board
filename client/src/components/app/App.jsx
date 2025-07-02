@@ -17,6 +17,7 @@ function App() {
 
   const handleOnSearchInputChange = (event) => {
     setSearchInputValue(event.target.value);
+    
   };
 
 
@@ -25,8 +26,8 @@ function App() {
     setSubmittedSearch("")
   };
 
-  const handleSearchSubmit =(query) => {
-    setSubmittedSearch(query)
+  const handleSearchSubmit =(searchInputValue) => {
+    setSubmittedSearch(searchInputValue)
   }
   
 
@@ -52,6 +53,8 @@ function App() {
                 handleOnSearchInputChange={handleOnSearchInputChange}
                 handleSearchSubmit={handleSearchSubmit} 
                 handleClearSearch={handleClearSearch}
+                submittedSearch={submittedSearch}
+                setSubmittedSearch={setSubmittedSearch}
               />
             }
           />
