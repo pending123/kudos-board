@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../../pages/Home";
+import Home from "../../pages/home";
 import CardPage from "../../pages/cardPage";
 import NoMatch from "../../pages/noMatch";
 import Header from "../header";
