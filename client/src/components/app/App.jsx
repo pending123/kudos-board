@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../../pages/Home";
+import Home from "../../pages/home";
 import CardPage from "../../pages/cardPage";
 import NoMatch from "../../pages/noMatch";
 import Header from "../header";
@@ -17,17 +17,17 @@ function App() {
 
   const handleOnSearchInputChange = (event) => {
     setSearchInputValue(event.target.value);
+    
   };
 
 
   const handleClearSearch = () => {
     setSearchInputValue("")
     setSubmittedSearch("")
-    console.log("hello")
   };
 
-  const handleSearchSubmit =(query) => {
-    setSubmittedSearch(query)
+  const handleSearchSubmit =(searchInputValue) => {
+    setSubmittedSearch(searchInputValue)
   }
   
 
@@ -53,6 +53,8 @@ function App() {
                 handleOnSearchInputChange={handleOnSearchInputChange}
                 handleSearchSubmit={handleSearchSubmit} 
                 handleClearSearch={handleClearSearch}
+                submittedSearch={submittedSearch}
+                setSubmittedSearch={setSubmittedSearch}
               />
             }
           />
