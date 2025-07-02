@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../../pages/home";
-import CardPage from "../../pages/cardPage";
+import BoardPage from "../BoardPage/BoardPage"
 import NoMatch from "../../pages/noMatch";
 import Header from "../header";
 import Footer from "../footer";
@@ -59,7 +59,7 @@ function App() {
             }
           />
 
-          <Route path="/boards/:id" element={<CardPage />} />
+          <Route path="/boards/:id" element={<BoardPage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>
