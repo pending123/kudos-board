@@ -23,7 +23,6 @@ function App() {
   const handleClearSearch = () => {
     setSearchInputValue("")
     setSubmittedSearch("")
-    console.log("hello")
   };
 
   const handleSearchSubmit =(query) => {
