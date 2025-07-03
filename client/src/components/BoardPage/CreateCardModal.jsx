@@ -90,7 +90,7 @@ const CreateCardModal = ({ onSubmit, onCancel }) => {
                 params: {
                     api_key: API_KEY,
                     q: gifSearchQuery,
-                    limit: 6,
+                    limit: 8,
                     rating: 'g'
                 }
             });
@@ -365,14 +365,14 @@ const CreateCardModal = ({ onSubmit, onCancel }) => {
                             key={gif.id}
                             type="button"
                             onClick={() => handleGifSelect(gif)}
-                            className={`relative overflow-hidden rounded-lg transition duration-200 hover:scale-105 ${
+                            className={`relative overflow-hidden rounded-lg transition duration-200 hover:scale-105 aspect-square ${
                             selectedGif?.id === gif.id ? 'ring-2 ring-green-500' : ''
                             }`}
                         >
                             <img 
                             src={gif.images.fixed_height_small.url}
                             alt={gif.title}
-                            className="w-full h-20 object-cover aspect-square"
+                            className="w-full h-full object-cover object-cover"
                             />
                         </button>
                         ))}
