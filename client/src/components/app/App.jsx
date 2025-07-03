@@ -59,7 +59,7 @@ function App() {
             }
           />
 
-          <Route path="/boards/:id" element={<BoardPage />} />
+          <Route path="/boards/:boardId" element={<BoardPage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>

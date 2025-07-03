@@ -42,6 +42,9 @@ const BoardPage = () => {
 
     const handleAddCard = async (cardData) => {
         try {
+            // Add debugging log
+            console.log('Sending card data:', cardData);
+            
             const { data: newCard } = await axios.post(`http://localhost:3000/boards/${boardId}/cards`, cardData);
 
             setCards(prevCards => [newCard, ...prevCards]);
@@ -49,6 +52,13 @@ const BoardPage = () => {
         }
         catch (err) {
             console.error('Failed to create card: ', err);
+            
+            // Log the full error response
+            if (err.response) {
+                console.error('Error response:', err.response.data);
+                console.error('Error status:', err.response.status);
+            }
+            
             setError('Failed to create card');
         }
     };
