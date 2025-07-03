@@ -141,7 +141,7 @@ Deployed Application (optional): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`https://www.loom.com/share/1c7b5165c5164aa88da277b86e78051b?sid=aeb0b4e4-5433-4ca8-b878-78d49b097b5f`
+https://www.loom.com/share/1c7b5165c5164aa88da277b86e78051b?sid=aeb0b4e4-5433-4ca8-b878-78d49b097b5f
 
 ### Reflection
 
