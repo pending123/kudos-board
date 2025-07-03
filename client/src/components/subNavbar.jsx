@@ -36,13 +36,13 @@ function SubNavbar({
                   placeholder="Search"
                   value={searchInputValue}
                   onChange={handleOnSearchInputChange}
-                  className="flex-grow py-3 px-6 rounded-l-full border border-gray-300 bg-gray-100 text-gray-800 text-lg
+                  className="flex-grow py-3 px-6 rounded-l-xl border border-gray-300 bg-gray-100 text-gray-800 text-lg
                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </label>
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-r-full
+                className="cursor-pointer bg-gray-600 hover:bg-gray-700 text-gray-50 font-semibold py-3 px-8 rounded-r-xl
                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300 ease-in-out whitespace-nowrap"
               >
                 Search
@@ -50,7 +50,7 @@ function SubNavbar({
               <button
                 type="button"
                 onClick={handleClearSearch}
-                className="ml-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 px-5 rounded-full
+                className="cursor-pointer ml-2.5 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 px-5 rounded-xl
                              focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition duration-300 ease-in-out"
               >
                 Clear
@@ -72,7 +72,7 @@ function SubNavbar({
                   }}
                   // Base styling for all buttons: padding, rounded-full, font, text size, transition
                   className={`
-                    px-6 py-2 rounded-full font-semibold text-lg transition-all duration-300 ease-in-out
+                    cursor-pointer px-6 py-2 rounded-full font-semibold text-lg transition-all duration-300 ease-in-out
                     focus:outline-none focus:ring-2 focus:ring-opacity-75
                     ${
                       activeCategory === cat
