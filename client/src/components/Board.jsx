@@ -1,4 +1,9 @@
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faThumbTack } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom"
+
 
 export default function Board({boardId, title, category, author, image, fetchBoards}) {    
     async function deleteBoard() {
@@ -11,14 +16,31 @@ export default function Board({boardId, title, category, author, image, fetchBoa
     }
     return (
         <>
-        <div className="flex flex-col items-center border border-black rounded-2xl pb-4">
-            <img className="aspect-[10/11] rounded-2xl" src={image} />
-            <h1 className="text-4xl mt-3">{title}</h1> 
-            <p className="text-2xl">{category}</p>
-            <div className="flex justify-around w-full mt-3">
-                <button className="text-2xl border border-black p-2 cursor-pointer">View Board</button>
-                <button onClick={deleteBoard} className="text-2xl border border-black p-2 cursor-pointer">Delete Board</button>
+        <div className="flex flex-col items-center shadow-md rounded-lg pb-4">
+            {/*Image wrapper with overlay */}
+            <div className="relative group overflow-hidden rounded-lg cursor-pointer">
+                <img className="aspect-[2/3] rounded-lg object-cover" src={image} />
+
+                {/*Dark overlay*/}
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50"> </div>
+            
+                {/*Centered text*/}
+                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100">
+                     <Link to={`boards/${boardId}`} className="text-white text-lg font-semibold" > View Board </Link>
+                </div>
+
+                <div className="justify-end gap-2 mt-auto mb-2 flex h-fit w-full pr-1 absolute inset-0 opacity-0 group-hover:opacity-100">
+                    <button className="bg-white rounded-lg text-lg p-1.5 px-2.5 cursor-pointer">
+                        <FontAwesomeIcon icon={faThumbTack} />
+                    </button>
+                    <button onClick={deleteBoard} className="bg-white rounded-lg mr-0.5 text-lg p-1.5 px-2.5 cursor-pointer">
+                        <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
+                </div>
             </div>
+            <h1 className="text-lg mt-3">{title}</h1> 
+            <p className="text-sm">{category}</p>
+            
         </div>
         </>
     )

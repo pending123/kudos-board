@@ -17,8 +17,8 @@ export default function BoardGrid({boards, fetchBoards}) {
     return (
         <>
         <div className="flex flex-col mt-12">
-        <button onClick={handleClick} className="cursor-pointer text-2xl mt-8 border border-black w-fit p-2.5 self-center">Create a New Board</button>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6 mt-16 ml-48 mr-48">
+        <button onClick={handleClick} className="rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold cursor-pointer mt-3 w-fit p-2.5 self-center">Create New Board</button>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,250px))] gap-6 mt-16 mb-22 justify-center">
          {boards.map((board) => (
             <Board 
                 key={board.boardId}
