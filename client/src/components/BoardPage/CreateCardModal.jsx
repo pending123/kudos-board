@@ -133,6 +133,9 @@ const CreateCardModal = ({ onSubmit, onCancel }) => {
     // Validate form
     const validateForm = () => {
         const newErrors = {};
+        if (!formData.title.trim()) {
+            newErrors.title = 'A title is required.';
+        }
         
         if (!formData.cardDescription.trim()) {
             newErrors.cardDescription = 'A message is required.';
@@ -202,7 +205,7 @@ const CreateCardModal = ({ onSubmit, onCancel }) => {
                 {/* Card Title */}
                 <div>
                         <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-                            Title (optional):
+                            Title:
                         </label>
                     <input
                         type="text"
@@ -213,6 +216,11 @@ const CreateCardModal = ({ onSubmit, onCancel }) => {
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="Enter card title..."
                     />
+                    
+                    {/*TESTING */}
+                    {errors.title && (
+                        <p className="mt-1 text-sm text-red-600">{errors.title}</p>
+                    )}                    
                 </div>
 
                 {/* Card Description */}

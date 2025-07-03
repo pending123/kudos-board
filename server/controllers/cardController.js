@@ -14,16 +14,35 @@ exports.getCardsForBoard = async (req, res) => {
 }
 
 //Create new card
+//Create new card
 exports.createNewCard = async (req, res) => {
     const boardId = Number(req.params.id);
     const {title, cardDescription, gifUrl, owner} = req.body;
+    
+    // Add debugging logs
+    console.log('Creating card with data:', {
+        boardId,
+        title,
+        cardDescription,
+        gifUrl,
+        owner
+    });
+    
     try {
         const newCard = await prisma.card.create({
             data: {title, cardDescription, gifUrl, owner, boardId},
         });
         res.status(201).json(newCard);
     } catch (err) {
-        res.status(400).json({error: 'Failed to create card for board'})
+        // Log the actual error details
+        console.error('Database error creating card:', err);
+        console.error('Error details:', err.message);
+        console.error('Error code:', err.code);
+        
+        res.status(400).json({
+            error: 'Failed to create card for board',
+            details: err.message  // Include actual error message
+        });
     }
 }
 
