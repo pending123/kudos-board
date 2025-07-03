@@ -16,7 +16,7 @@ export default function Board({boardId, title, category, author, image, fetchBoa
     }
     return (
         <>
-        <div className="flex flex-col items-center shadow-md rounded-lg pb-4">
+        <div className="flex flex-col shadow-sm rounded-lg pb-4">
             {/*Image wrapper with overlay */}
             <div className="relative group overflow-hidden rounded-lg cursor-pointer">
                 <img className="aspect-[2/3] rounded-lg object-cover" src={image} />
@@ -29,17 +29,14 @@ export default function Board({boardId, title, category, author, image, fetchBoa
                      <Link to={`boards/${boardId}`} className="text-white text-lg font-semibold" > View Board </Link>
                 </div>
 
-                <div className="justify-end gap-2 mt-auto mb-2 flex h-fit w-full pr-1 absolute inset-0 opacity-0 group-hover:opacity-100">
-                    <button className="bg-white rounded-lg text-lg p-1.5 px-2.5 cursor-pointer">
-                        <FontAwesomeIcon icon={faThumbTack} />
-                    </button>
+                <div className="justify-end mt-auto mb-2 flex h-fit w-full pr-1 absolute inset-0 opacity-0 group-hover:opacity-100">
                     <button onClick={deleteBoard} className="bg-white rounded-lg mr-0.5 text-lg p-1.5 px-2.5 cursor-pointer">
                         <FontAwesomeIcon icon={faTrashCan} />
                     </button>
                 </div>
             </div>
-            <h1 className="text-lg mt-3">{title}</h1> 
-            <p className="text-sm">{category}</p>
+            <h1 className="text-lg ml-2 mt-2">{title}</h1> 
+            <p className="text-sm ml-2">{category}</p>
             
         </div>
         </>
