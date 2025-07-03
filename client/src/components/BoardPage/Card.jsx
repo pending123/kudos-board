@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CommentsModal from "./CommentsModal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Card = ({ card, onUpvote, onDelete }) => {
     const [showCommentsModal, setShowCommentsModal] = useState(false);
@@ -55,11 +57,13 @@ const Card = ({ card, onUpvote, onDelete }) => {
             
                     {/* Delete button */}
                     <button
+                        
                         onClick={onDelete}
-                        className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center transition duration-200"
+                        className="absolute top-2 right-2 flex items-center justify-center transition duration-200"
                         title="Delete card"
                     >
-                        x
+                        {/* X used to be here */}
+                        <FontAwesomeIcon icon={faCircleXmark} size="2xl" style={{color: "fb2c36",}}/>
                     </button>
                 </div>
                 
