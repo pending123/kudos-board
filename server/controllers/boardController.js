@@ -40,6 +40,29 @@ const addNewBoard =async (req,res) => {
         console.error("Could not add new board: ", error)
     }
 }
+//Pin board
+const pinBoard = async (req, res) => {
+    const boardId = Number(req.params.id);
+    const board = await prisma.board.findUnique({where: {boardId}});
+    if (!board) {
+        return res.status(404).json({error: 'Board not found'});
+    }
+
+    const isPinning = !board.pinned;
+
+    try {
+        const updatedBoard = await prisma.board.update({
+            where: {boardId},
+            data: {
+                pinned: isPinning,
+                pinnedAt: isPinning ? new Date() : null
+            },
+        });
+        res.status(200).json(updatedBoard);
+    } catch (err) {
+        res.status(400).json({error: 'Failed to pin or unpin board'});
+    }
+}
 
 //Deletes Board
 const deleteBoard = async (req,res) => {
@@ -58,5 +81,6 @@ module.exports ={
     getAllBoards,
     getBoardById,
     addNewBoard,
-    deleteBoard
+    deleteBoard,
+    pinBoard
 }

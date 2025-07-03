@@ -14,7 +14,6 @@ exports.getCardsForBoard = async (req, res) => {
 }
 
 //Create new card
-//Create new card
 exports.createNewCard = async (req, res) => {
     const boardId = Number(req.params.id);
     const {title, cardDescription, gifUrl, owner} = req.body;
