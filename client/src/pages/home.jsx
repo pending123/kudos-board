@@ -42,11 +42,12 @@ export default function Home({
             console.log("Error fetching boards:", err);
         }
     };
-
     useEffect(() => {
         fetchBoards();
     }, [setBoards, activeCategory, submittedSearch]);
     
+
+
     return (
         <>
         <div className="navBar">
