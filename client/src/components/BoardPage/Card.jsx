@@ -63,7 +63,7 @@ const Card = ({ card, onUpvote, onDelete }) => {
                         title="Delete card"
                     >
                         {/* X used to be here */}
-                        <FontAwesomeIcon className="text-white" icon={faCircleXmark} size="2xl" style={{color: "fb2c36",}}/>
+                        <FontAwesomeIcon icon={faCircleXmark} size="2xl" style={{color: "fb2c36",}}/>
                     </button>
                 </div>
                 
