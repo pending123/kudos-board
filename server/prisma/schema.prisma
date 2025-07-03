@@ -15,13 +15,15 @@ datasource db {
 
 
 model Board{
-  boardId      Int @id @default(autoincrement())
+  boardId       Int @id @default(autoincrement())
   title         String
   category      String
   author        String?
   img           String
   createdAt     DateTime @default(now())
   cards         Card[]
+  pinned        Boolean  @default(false)
+  pinnedAt      DateTime?
 }
 
 model Card{

@@ -3,15 +3,17 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CardGrid from "./CardGrid";
 import CreateCardModal from "./CreateCardModal";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 const BoardPage = () => {
     const { boardId } = useParams();
-
     const [cards, setCards] = useState([]);
     const [board, setBoard] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [showCreateModal, setShowCreateModal] = useState(false);
+
+    useScrollToTop();
 
     useEffect(() => {
         const loadBoardData = async () => {

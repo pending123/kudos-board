@@ -17,6 +17,15 @@ export default function Home({
     const fetchBoards = async () => {
         try {
             const { data } = await axios.get("http://localhost:3000/boards");
+            //Sort data by pinned values and time
+            data.sort((a, b) => {
+              if (a.pinned === b.pinned) {
+                const aTime = a.pinnedAt ? new Date(a.pinnedAt).getTime() : 0;
+                const bTime = b.pinnedAt ? new Date(b.pinnedAt).getTime() : 0;
+                return bTime - aTime;
+            }
+            return Number(b.pinned) - Number(a.pinned);
+            })
             const boardsByCategory= 
               activeCategory !== "All" && activeCategory !== "Recent"
               ? data.filter((b) => b.category === activeCategory) 
